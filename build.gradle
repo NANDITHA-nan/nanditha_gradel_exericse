@@ -9,11 +9,14 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
-
+test {
+    useTestNG()
+}
 task copyWebsite(type: Copy) {
     from 'src/main/resources'
     into 'docs'
 }
+
 tasks.named('run'){
     dependsOn 'copyWebsite'
 }
